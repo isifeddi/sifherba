@@ -1,15 +1,14 @@
 #include "fillit.h"
 
-int     ft_valid_line(char *str)
+int		ft_valid_line(char *str)
 {
 	int		i;
 
 	i = 0;
 	if (ft_strlen(str) != 4)
-
 	{
 		ft_putstr("one line is invalid");
-		return(0);
+		return (0);
 	}
 	while (str[i])
 	{
@@ -33,38 +32,38 @@ int		ft_read_void_line(const int fd, char *str)
 	return (1);
 }
 
-int 	ft_nbr_hash(char *str)
- {
-  int i;
-  int j;
-
-  i = 0;
-  j = 0;
-  while (i < 4)
-  {
-  	if (str[i] == '#')
-  		j++;
-  	i++;
-  }
-  return (j);
- }
-
-int		ft_read_4_line(int *nd,const int fd, char *str, t_lst *tetri)
+int		ft_nbr_hash(char *str)
 {
 	int i;
 	int j;
 
 	i = 0;
 	j = 0;
-	while (i < 4 && ((*nd) = get_next_line(fd,&str)) > 0)
+	while (i < 4)
 	{
-		if(!ft_valid_line(str))
+		if (str[i] == '#')
+			j++;
+		i++;
+	}
+	return (j);
+}
+
+int		ft_read_4_line(int *nd, const int fd, char *str, t_lst *tetri)
+{
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+	while (i < 4 && ((*nd) = get_next_line(fd, &str)) > 0)
+	{
+		if (!ft_valid_line(str))
 			return (0);
 		j = j + ft_nbr_hash(str);
 		tetri->tet[i] = ft_strdup(str);
 		i++;
 	}
-	if ((*nd) == 0 )
+	if ((*nd) == 0)
 		return (1);
 	if (j != 4)
 		return (0);
@@ -83,12 +82,12 @@ t_lst	*ft_read_file(const int fd)
 	while (nd > 0)
 	{
 		tetri = ft_lst_new();
-	 if (!ft_read_4_line(&nd, fd, str, tetri))
-		return (NULL);
+		if (!ft_read_4_line(&nd, fd, str, tetri))
+			return (NULL);
 		if (nd == 0)
-		break;
-		if(!ft_read_void_line(fd,str))
-			return(NULL);
+			break ;
+		if (!ft_read_void_line(fd, str))
+			return (NULL);
 		tmprr = ad_lst_addend(tmprr, tetri);
 	}
 	return (tmprr);
