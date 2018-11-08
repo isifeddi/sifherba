@@ -2,7 +2,7 @@
 
 int		ft_valid_line(char *str)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	if (ft_strlen(str) != 4)
@@ -52,9 +52,11 @@ int		ft_read_4_line(int *nd, const int fd, char *str, t_lst *tetri)
 {
 	int i;
 	int j;
+	int cpt;
 
 	i = 0;
 	j = 0;
+	cpt = 0;
 	while (i < 4 && ((*nd) = get_next_line(fd, &str)) > 0)
 	{
 		if (!ft_valid_line(str))
@@ -67,7 +69,10 @@ int		ft_read_4_line(int *nd, const int fd, char *str, t_lst *tetri)
 		return (1);
 	if (j != 4)
 		return (0);
-	return (1);
+	if (!ft_valid_tetri(tetri->tet, cpt))
+		return (0);
+	else
+		return (1);
 }
 
 t_lst	*ft_read_file(const int fd)

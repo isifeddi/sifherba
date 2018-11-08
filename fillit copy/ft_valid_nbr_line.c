@@ -7,7 +7,7 @@ int		ft_valid_nbr_line(const int fd)
 
 	i = 0;
 	str = NULL;
-	while (get_next_line(fd,&str) > 0)
+	while (get_next_line(fd, &str) > 0)
 	{
 		i++;
 	}
