@@ -20,4 +20,16 @@ int					ft_valid_tetri(char **str, int cpt);
 int					ft_srsh(char **str, int i, int j);
 int					**ft_hash_pos(char **str);
 
+typedef struct      s_point
+{
+	int				x;
+	int             y;
+}					t_point;
+
+typedef struct		s_coor
+{
+	t_point		tab[4];
+	struct s_coor	*next;
+}					t_coor;
+
 #endif

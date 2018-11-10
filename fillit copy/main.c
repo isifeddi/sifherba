@@ -8,7 +8,7 @@ int		main(void)
 {
 	int fd;
 	t_lst	*toto;
-
+	t_lst	*coord;
 	fd = 0;
 	fd = open("test.txt",O_RDONLY);
 	toto = ft_read_file(fd);
@@ -19,12 +19,5 @@ int		main(void)
 	}
 	else
 		ft_putstr("error");
-/*	if(!ft_valid_tetri(toto->tet))
-	{
-		ft_putstr("baaaaaad");
-		return (0);
-	}
-	else
-		ft_putstr("good");*/
 	return (0);
 }
