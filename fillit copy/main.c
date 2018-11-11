@@ -8,7 +8,8 @@ int		main(void)
 {
 	int fd;
 	t_lst	*toto;
-	t_lst	*coord;
+	t_coor	*lolo;
+
 	fd = 0;
 	fd = open("test.txt",O_RDONLY);
 	toto = ft_read_file(fd);
@@ -19,5 +20,7 @@ int		main(void)
 	}
 	else
 		ft_putstr("error");
+	lolo = ft_hash_pos(toto);
+	ft_print_coor(lolo);
 	return (0);
 }

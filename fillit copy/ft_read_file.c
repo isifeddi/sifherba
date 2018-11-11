@@ -84,6 +84,7 @@ t_lst	*ft_read_file(const int fd)
 
 	nd = 1;
 	tmprr = NULL;
+	str = NULL;
 	while (nd > 0)
 	{
 		tetri = ft_lst_new();

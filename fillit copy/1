@@ -6,7 +6,7 @@
 /*   By: isifeddi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:32:00 by isifeddi          #+#    #+#             */
-/*   Updated: 2018/11/11 22:09:13 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/11 22:05:19 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ t_coor	*ft_hash_pos(t_lst *tetri)
 		ft_putnbr(1);
 		ft_putchar('\n');
 		lst_pos = ft_lstnew_coor();
+		o = 0;
 		while (++i < 4)
 		{
-	
 			j = -1;
 			while (++j < 4)
 			{
@@ -45,7 +45,6 @@ t_coor	*ft_hash_pos(t_lst *tetri)
 		}
 		tmp_pos = ft_addlst_pos(tmp_pos, lst_pos);
 		tetri = tetri->next;
-		o = 0;
 	}
 	return (tmp_pos);
 }

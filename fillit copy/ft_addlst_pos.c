@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_coor.c                                   :+:      :+:    :+:   */
+/*   ft_addlst_pos.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oherba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/10 12:27:41 by oherba            #+#    #+#             */
-/*   Updated: 2018/11/11 19:40:07 by oherba           ###   ########.fr       */
+/*   Created: 2018/11/11 16:40:51 by oherba            #+#    #+#             */
+/*   Updated: 2018/11/11 19:43:48 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_coor	*ft_lstnew_coor(void)
+t_coor	*ft_addlst_pos(t_coor *lst, t_coor *new)
 {
-	t_coor	*new;
+	t_coor *tmp;
 
-	if((new = malloc(sizeof(t_coor))) == NULL)
-		return (NULL);
-	new->next = NULL;
-	return (new);
+	tmp = lst;
+	if(lst == NULL)
+		return (new);
+	tmp = lst;
+	while (lst->next)
+		lst = lst->next;
+	lst->next = new;
+		return (tmp);
 }
+	
