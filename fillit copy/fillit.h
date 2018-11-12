@@ -6,7 +6,7 @@
 /*   By: isifeddi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 11:14:26 by isifeddi          #+#    #+#             */
-/*   Updated: 2018/11/12 11:14:51 by isifeddi         ###   ########.fr       */
+/*   Updated: 2018/11/12 15:51:59 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,5 +46,6 @@ t_coor				*ft_lstnew_coor(void);
 t_coor				*ft_addlst_pos(t_coor *lst, t_coor *new);
 t_coor				*ft_hash_pos(t_lst *tetri);
 void				ft_print_coor(t_coor *lst);
+void				ft_final_pos(t_coor *pos);
 
 #endif

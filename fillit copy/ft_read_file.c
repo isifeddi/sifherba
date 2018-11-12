@@ -6,7 +6,7 @@
 /*   By: isifeddi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 11:26:25 by isifeddi          #+#    #+#             */
-/*   Updated: 2018/11/12 11:26:29 by isifeddi         ###   ########.fr       */
+/*   Updated: 2018/11/12 12:55:39 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,7 @@ int		ft_valid_line(char *str)
 
 	i = 0;
 	if (ft_strlen(str) != 4)
-	{
-		ft_putstr("one line is invalid");
 		return (0);
-	}
 	while (str[i])
 	{
 		if (str[i] != '#' && str[i] != '.')

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_hash_pos.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: isifeddi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: oherba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 16:32:00 by isifeddi          #+#    #+#             */
-/*   Updated: 2018/11/12 11:10:01 by isifeddi         ###   ########.fr       */
+/*   Created: 2018/11/12 13:33:24 by oherba            #+#    #+#             */
+/*   Updated: 2018/11/12 16:02:16 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,28 @@ t_coor	*ft_hash_pos(t_lst *tetri)
 		tmp_pos = ft_addlst_pos(tmp_pos, lst_pos);
 		tetri = tetri->next;
 	}
+	ft_final_pos(tmp_pos);
 	return (tmp_pos);
+}
+
+void	ft_final_pos(t_coor *pos)
+{
+	while (pos)
+	{
+		while (pos->tab[0].x && pos->tab[1].x && pos->tab[2].x && pos->tab[3].x)
+		{
+			pos->tab[0].x--;
+			pos->tab[1].x--;
+			pos->tab[2].x--;
+			pos->tab[3].x--;
+		}
+		while (pos->tab[0].y && pos->tab[1].y && pos->tab[2].y && pos->tab[3].y)
+		{
+			pos->tab[0].y--;
+			pos->tab[1].y--;
+			pos->tab[2].y--;
+			pos->tab[3].y--;
+		}
+		pos = pos->next;
+	}
 }
