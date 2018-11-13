@@ -6,7 +6,7 @@
 /*   By: oherba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 18:11:18 by oherba            #+#    #+#             */
-/*   Updated: 2018/11/12 21:51:44 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/13 18:39:14 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ char **ft_point(char **str)
 	i = 0;
 	j = 0;
 
-	while (i < 4)
+	while (i < 20)
 	{
 		j = 0;
-		while (j < 4)
+		while (j < 20)
 		{
 			if(str[i][j] != '#')
 				str[i][j] = '.';
@@ -33,10 +33,10 @@ char **ft_point(char **str)
 	}
 	return (str);
 }
-	
 
 
-void	ft_place_tetri(t_coor *lstpos)
+
+void	ft_place_one_tetri(t_coor *lstpos, int y, int x)
 {
 	char	**board;
 	int i;
@@ -46,27 +46,30 @@ void	ft_place_tetri(t_coor *lstpos)
 	j = 0;
 	i = 0;
 	alpha = 'A';
-	board = malloc(sizeof(char *) * 4);
-	while (i < 4)
+	board = malloc(sizeof(char *) * 20);
+	while (i < 20)
 	{
-		board[i]  = malloc(sizeof(char) * 4);
+		board[i]  = malloc(sizeof(char) * 20);
 		i++;
 	}
 	ft_point(board);
-//	i = 0;
-
-//	while(lstpos)
-//	{
-		board[lstpos->tab[0].y][lstpos->tab[0].x] = alpha;
-		board[lstpos->tab[1].y][lstpos->tab[1].x] = alpha;
-		board[lstpos->tab[2].y][lstpos->tab[2].x] = alpha;
-		board[lstpos->tab[3].y][lstpos->tab[3].x] = alpha;
-		while (j < 4)
-		{
-			ft_putstr("\n");
-			ft_putstr(board[j]);
-			j++;
-		}
-
-	//}
+	while(lstpos)
+	{
+		board[lstpos->tab[0].y + y][lstpos->tab[0].x + x] = alpha;
+		board[lstpos->tab[1].y + y][lstpos->tab[1].x + x] = alpha;
+		board[lstpos->tab[2].y + y][lstpos->tab[2].x + x] = alpha;
+		board[lstpos->tab[3].y + y][lstpos->tab[3].x + x] = alpha;
+		alpha++;
+	//	x++;
+		//y++;
+		lstpos = lstpos->next;
+	}
+	while (j < 20)
+	{
+		ft_putstr("\n");
+		ft_putstr(board[j]);
+		j++;
+	}
 }
+
+//void	ft_place(t_coor *lstpos 
