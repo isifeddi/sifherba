@@ -6,7 +6,7 @@
 /*   By: oherba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 18:11:18 by oherba            #+#    #+#             */
-/*   Updated: 2018/11/13 18:39:14 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/13 19:38:54 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	ft_place_one_tetri(t_coor *lstpos, int y, int x)
 		board[lstpos->tab[2].y + y][lstpos->tab[2].x + x] = alpha;
 		board[lstpos->tab[3].y + y][lstpos->tab[3].x + x] = alpha;
 		alpha++;
-	//	x++;
+		x++;
 		//y++;
 		lstpos = lstpos->next;
 	}
