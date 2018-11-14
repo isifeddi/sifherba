@@ -6,7 +6,7 @@
 /*   By: isifeddi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 11:14:26 by isifeddi          #+#    #+#             */
-/*   Updated: 2018/11/13 18:15:24 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/14 15:08:09 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,6 @@ t_coor				*ft_hash_pos(t_lst *tetri);
 void				ft_print_coor(t_coor *lst);
 void				ft_final_pos(t_coor *pos);
 char				**ft_point(char **str);
-void				ft_place_one_tetri(t_coor *lstpos, int y, int x);
+void				ft_place_one_tetri(t_coor *lstpos, int y, int x, char **board, char alpha);
+void				ft_place(t_coor *lstpos);
 #endif

@@ -22,6 +22,6 @@ int		main(void)
 		ft_putstr("error");
 	lolo = ft_hash_pos(toto);
 	ft_print_coor(lolo);
-	ft_place_one_tetri(lolo, 0, 0);
+	ft_place(lolo);
 	return (0);
 }
