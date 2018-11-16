@@ -6,7 +6,7 @@
 /*   By: isifeddi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 11:14:26 by isifeddi          #+#    #+#             */
-/*   Updated: 2018/11/16 15:24:21 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/16 19:08:43 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,5 @@ char				**ft_initialise_zero(char **str);
 void				ft_place_one_tetri(t_coor *lstpos, int y, int x, char **board, char alpha);
 void				ft_place(t_coor *lstpos);
 void    ft_putstr_zero(char const *s);
+void    ft_print_res(char **board, int i);
 #endif
