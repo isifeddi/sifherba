@@ -6,7 +6,7 @@
 /*   By: oherba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 18:11:18 by oherba            #+#    #+#             */
-/*   Updated: 2018/11/16 19:10:20 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/17 12:01:21 by isifeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,9 @@ void	ft_remove_one_tetri(t_coor *lstpos, int y, int x, char  **board)
 }
 int     ft_c_arret(char **board, t_coor *lstpos,int y ,int x)
 {
-	if (board[lstpos->tab[0].y + y + 1][lstpos->tab[0].x + x + 1] == '0' ||
-			board[lstpos->tab[1].y + y + 1][lstpos->tab[1].x + x + 1] == '0' ||
-			board[lstpos->tab[2].y + y + 1][lstpos->tab[2].x + x + 1] == '0' ||
+	if (board[lstpos->tab[0].y + y + 1][lstpos->tab[0].x + x + 1] == '0' &&
+			board[lstpos->tab[1].y + y + 1][lstpos->tab[1].x + x + 1] == '0' &&
+			board[lstpos->tab[2].y + y + 1][lstpos->tab[2].x + x + 1] == '0' &&
 			board[lstpos->tab[3].y + y + 1][lstpos->tab[3].x + x + 1] == '0')
 	{
 		return(0);
@@ -94,10 +94,10 @@ int 	ft_find_x_y(char **board, t_coor *lstpos,int *y ,int *x)
 		if(!ft_c_arret(board,lstpos, *y ,*x))
 			break ;
 		(*x)++;
-		if (board[lstpos->tab[0].y + *y][lstpos->tab[0].x + *x] != '0' ||
-				board[lstpos->tab[1].y + *y][lstpos->tab[1].x + *x] != '0' ||
-				board[lstpos->tab[2].y + *y][lstpos->tab[2].x + *x] != '0' ||
-				board[lstpos->tab[3].y + *y][lstpos->tab[3].x + *x] != '0')
+		if (board[lstpos->tab[0].y + *y][lstpos->tab[0].x + *x] == '0' ||
+				board[lstpos->tab[1].y + *y][lstpos->tab[1].x + *x] == '0' ||
+				board[lstpos->tab[2].y + *y][lstpos->tab[2].x + *x] == '0' ||
+				board[lstpos->tab[3].y + *y][lstpos->tab[3].x + *x] == '0')
 		{
 			(*x) = 0;
 			(*y)++;
@@ -172,6 +172,7 @@ void	ft_place(t_coor *lstpos)
 			i++;
 			ft_point(board,i);
 		}
+		ft_putnbr(i);
 	}
 	ft_print_res(board, i);
 }
