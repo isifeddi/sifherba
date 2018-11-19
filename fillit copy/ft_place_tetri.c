@@ -6,7 +6,7 @@
 /*   By: oherba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 18:11:18 by oherba            #+#    #+#             */
-/*   Updated: 2018/11/19 17:28:32 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/19 23:57:10 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,17 +73,19 @@ void	ft_remove_one_tetri(t_coor *lstpos, int y, int x, char  **board)
 		i++;
 	}
 }
+
 int     ft_c_arret(char **board, t_coor *lstpos,int y ,int x)
 {
-	if (board[lstpos->tab[0].y + y + 1][lstpos->tab[0].x + x + 1] == '0' &&
-			board[lstpos->tab[1].y + y + 1][lstpos->tab[1].x + x + 1] == '0' &&
-			board[lstpos->tab[2].y + y + 1][lstpos->tab[2].x + x + 1] == '0' &&
-			board[lstpos->tab[3].y + y + 1][lstpos->tab[3].x + x + 1] == '0')
+	if (board[lstpos->tab[0].y + y ][lstpos->tab[0].x + x] == '0' &&
+			board[lstpos->tab[1].y + y][lstpos->tab[1].x + x ] == '0' &&
+			board[lstpos->tab[2].y + y ][lstpos->tab[2].x + x ] == '0' &&
+			board[lstpos->tab[3].y + y ][lstpos->tab[3].x + x ] == '0')
 	{
 		return(0);
 	}
 	return (1);
 }
+
 int 	ft_find_x_y(char **board, t_coor *lstpos,int *y ,int *x)
 {
 	while (board[lstpos->tab[0].y + *y][lstpos->tab[0].x + *x] != '.' ||
@@ -130,11 +132,9 @@ void    ft_delete(char **board, char alpha)
 		i++;
 	}
 }
+
 void	ft_search(char **board,char alpha,int *x,int *y)
 {
-
-
-
 	if(alpha=='C')
 	printf("first=%c",board[1][3]);
 	while (board[*y][*x]!='0')
@@ -143,9 +143,6 @@ void	ft_search(char **board,char alpha,int *x,int *y)
 		{
 			if(board[*y][*x]==alpha)
 				break;
-				//ft_putchar('?');
-			//else
-			//ft_putchar(board[*y][*x]);
 			(*x)++;
 		}
 		if(board[*y][*x]==alpha)
@@ -154,11 +151,14 @@ void	ft_search(char **board,char alpha,int *x,int *y)
 		(*x) = 0;
 		(*y)++;
 	}
-	(*x)++;
-	//if(*y)
-	//(*y)--;
-//	printf("\nx=%d \t y=%d\n",*x,*y);
+	if(board[*y][(*x)+1]=='0')
+	{
+		*x=-1;
+		(*y)++;
+	}
+	printf("\nx=%d \t y=%d\n",*x,*y);
 }
+
 int		check_place(char **board, t_coor *lstpos, char alpha,int mode)
 {
 	int x;
@@ -174,7 +174,7 @@ int		check_place(char **board, t_coor *lstpos, char alpha,int mode)
 	{
 		ft_search(board,alpha,&x ,&y);
 		ft_delete(board,alpha);
-		//x+=-(lstpos->tab[0].x-1);
+		x+=-(lstpos->tab[0].x-1);
 		printf("x=%d &&  y=%d alpha%c\n",x,y,alpha);
 	}
 	if (ft_find_x_y(board,lstpos,&y ,&x))
@@ -207,13 +207,10 @@ void	ft_place(t_coor *lstpos)
 {
 	char alpha;
 	int i;
-	char    **board;
+	char   **board;
 	int		mode;
-	int j;
-	int k;
 
-	j=0;
-	i = 2;
+	i = 5;
 	alpha = 'A';
 	board = ft_initialise_zero(board);
 	ft_point(board, i);
@@ -222,14 +219,11 @@ void	ft_place(t_coor *lstpos)
 	{
 		if (check_place(board,lstpos,alpha,mode) == 1)
 		{
-			j = 0;
-			if (alpha == 'A')
-				k = 1;
 			mode=0;
 			alpha++;
 			lstpos = lstpos->next;
 		}
-		else if (alpha == 'A' && k == 1)
+		else if (alpha == 'A')
 		{
 			mode = 0;
 			i++;
@@ -244,8 +238,7 @@ void	ft_place(t_coor *lstpos)
 			lstpos = lstpos->prev;
 			}
 		}
-		j++;
-		//getchar();
+	//getchar();
 		//sleep(1);
 		system("clear");
 		ft_putnbr(i);
