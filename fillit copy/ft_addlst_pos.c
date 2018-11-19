@@ -6,7 +6,7 @@
 /*   By: oherba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 16:40:51 by oherba            #+#    #+#             */
-/*   Updated: 2018/11/12 11:11:25 by isifeddi         ###   ########.fr       */
+/*   Updated: 2018/11/19 16:30:20 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ t_coor	*ft_addlst_pos(t_coor *lst, t_coor *new)
 	while (lst->next)
 		lst = lst->next;
 	lst->next = new;
+	new->prev=lst;
 	return (tmp);
 }

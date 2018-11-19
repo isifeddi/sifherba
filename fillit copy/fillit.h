@@ -6,7 +6,7 @@
 /*   By: isifeddi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 11:14:26 by isifeddi          #+#    #+#             */
-/*   Updated: 2018/11/16 19:08:43 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/19 12:37:17 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct		s_coor
 {
 	t_point			tab[4];
 	struct s_coor	*next;
+	struct s_coor	*prev;
 }					t_coor;
 
 int					ft_valid_line(char *str);

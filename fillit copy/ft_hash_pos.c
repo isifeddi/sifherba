@@ -6,7 +6,7 @@
 /*   By: oherba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:33:24 by oherba            #+#    #+#             */
-/*   Updated: 2018/11/12 19:23:15 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/19 16:31:40 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_coor	*ft_hash_pos(t_lst *tetri)
 	{
 		lst_pos = ft_lstnew_coor();
 		ft_coor(tetri, lst_pos, tmp_pos);
+		//tmp_pos->prev=NULL;
 		tmp_pos = ft_addlst_pos(tmp_pos, lst_pos);
 		tetri = tetri->next;
 	}
