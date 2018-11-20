@@ -6,7 +6,7 @@
 /*   By: oherba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/21 18:22:13 by oherba            #+#    #+#             */
-/*   Updated: 2018/10/30 19:41:40 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/20 21:57:35 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 32
+# define BUFF_SIZE 4
 
 # include <sys/stat.h>
 

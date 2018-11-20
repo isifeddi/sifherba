@@ -6,7 +6,7 @@
 /*   By: oherba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 18:11:18 by oherba            #+#    #+#             */
-/*   Updated: 2018/11/19 23:57:10 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/20 23:35:45 by oherba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,8 +135,6 @@ void    ft_delete(char **board, char alpha)
 
 void	ft_search(char **board,char alpha,int *x,int *y)
 {
-	if(alpha=='C')
-	printf("first=%c",board[1][3]);
 	while (board[*y][*x]!='0')
 	{
 		while(board[*y][*x]!='0')
@@ -147,7 +145,6 @@ void	ft_search(char **board,char alpha,int *x,int *y)
 		}
 		if(board[*y][*x]==alpha)
 			break;
-		ft_putchar('\n');
 		(*x) = 0;
 		(*y)++;
 	}
@@ -156,7 +153,6 @@ void	ft_search(char **board,char alpha,int *x,int *y)
 		*x=-1;
 		(*y)++;
 	}
-	printf("\nx=%d \t y=%d\n",*x,*y);
 }
 
 int		check_place(char **board, t_coor *lstpos, char alpha,int mode)
@@ -168,14 +164,11 @@ int		check_place(char **board, t_coor *lstpos, char alpha,int mode)
 	i = 0;
 	x = 0;
 	y = 0;
-	ft_print_res(board, 0);
-	ft_putstr("\n\n\n");
 	if(mode==1)
 	{
 		ft_search(board,alpha,&x ,&y);
 		ft_delete(board,alpha);
 		x+=-(lstpos->tab[0].x-1);
-		printf("x=%d &&  y=%d alpha%c\n",x,y,alpha);
 	}
 	if (ft_find_x_y(board,lstpos,&y ,&x))
 	{
@@ -194,15 +187,23 @@ void	ft_print_res(char **board, int i)
 	int j;
 
 	j = 0;
-	i = 0;
-	while (j < 20)
+	while (j < i)
 	{
-		ft_putstr("\n");
 		ft_putstr_zero(board[j]);
+		ft_putstr("\n");
 		j++;
 	}
 }
 
+void	ft_else(int *mode, char *alpha, t_coor *lstpos)
+{
+	(*mode) = 1;
+	if((*alpha) !='A')
+	{
+		(*alpha)--;
+		lstpos = lstpos->prev;
+	}
+}
 void	ft_place(t_coor *lstpos)
 {
 	char alpha;
@@ -210,7 +211,7 @@ void	ft_place(t_coor *lstpos)
 	char   **board;
 	int		mode;
 
-	i = 5;
+	i = 2;
 	alpha = 'A';
 	board = ft_initialise_zero(board);
 	ft_point(board, i);
@@ -229,19 +230,8 @@ void	ft_place(t_coor *lstpos)
 			i++;
 			ft_point(board,i);
 		}
-		else 
-		{ 
-			mode = 1;
-			if(alpha !='A')
-			{
-			alpha--;
-			lstpos = lstpos->prev;
-			}
-		}
-	//getchar();
-		//sleep(1);
-		system("clear");
-		ft_putnbr(i);
+		else
+			ft_else(&mode, &alpha, lstpos);
 	}
 	ft_print_res(board, i);
 }

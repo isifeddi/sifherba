@@ -4,24 +4,25 @@
 # include <unistd.h>
 #include "get_next_line.h"
 
-int		main(void)
+int		main(int argc, char **argv)
 {
 	int fd;
 	t_lst	*toto;
 	t_coor	*lolo;
 
-	fd = 0;
-	fd = open("test.txt",O_RDONLY);
-	toto = ft_read_file(fd);
-	if (toto)
+	if (argc == 2)
 	{
-		ft_putstr("good file keep work\n");
-		ft_print_lst(toto);
+		fd = open(argv[1],O_RDONLY);
+		toto = ft_read_file(fd);
+		if (!toto)
+		{
+			ft_putendl("error");
+			return (0);
+		}
+		lolo = ft_hash_pos(toto);
+		ft_place(lolo);
 	}
 	else
-		ft_putstr("error");
-	lolo = ft_hash_pos(toto);
-	ft_print_coor(lolo);
-	ft_place(lolo);
+	ft_putstr("usage");
 	return (0);
 }
