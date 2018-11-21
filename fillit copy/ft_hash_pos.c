@@ -6,7 +6,7 @@
 /*   By: oherba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:33:24 by oherba            #+#    #+#             */
-/*   Updated: 2018/11/19 16:31:40 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/21 17:49:49 by isifeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	ft_coor(t_lst *tetri, t_coor *lst_pos, t_coor *tmp_pos)
 	int j;
 	int o;
 
+	tmp_pos = NULL;
 	o = 0;
 	i = -1;
 	while (++i < 4)
@@ -40,16 +41,12 @@ t_coor	*ft_hash_pos(t_lst *tetri)
 {
 	t_coor	*lst_pos;
 	t_coor	*tmp_pos;
-	int		o;
-	int		i;
-	int		j;
 
 	tmp_pos = NULL;
 	while (tetri)
 	{
 		lst_pos = ft_lstnew_coor();
 		ft_coor(tetri, lst_pos, tmp_pos);
-		//tmp_pos->prev=NULL;
 		tmp_pos = ft_addlst_pos(tmp_pos, lst_pos);
 		tetri = tetri->next;
 	}

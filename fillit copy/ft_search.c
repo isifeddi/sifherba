@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_valid_nbr_line.c                                :+:      :+:    :+:   */
+/*   ft_search.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: isifeddi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 11:25:39 by isifeddi          #+#    #+#             */
-/*   Updated: 2018/11/20 22:58:21 by oherba           ###   ########.fr       */
+/*   Created: 2018/11/21 17:24:23 by isifeddi          #+#    #+#             */
+/*   Updated: 2018/11/21 17:29:20 by isifeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "fillit.h"
 
-int		ft_valid_nbr_line(const int fd)
+void	ft_search(char **board, char alpha, int *x, int *y)
 {
-	int		i;
-	char	*str;
-
-	i = 0;
-	str = NULL;
-	while (get_next_line(fd, &str) > 0)
+	while (board[*y][*x] != '0')
 	{
-		i++;
+		while (board[*y][*x] != '0')
+		{
+			if (board[*y][*x] == alpha)
+				break ;
+			(*x)++;
+		}
+		if (board[*y][*x] == alpha)
+			break ;
+		(*x) = 0;
+		(*y)++;
 	}
-	ft_putstr("nbr isssss");
-	ft_putnbr(i);
-//	ft_putstr("\n");
-	/*if (i % 5)
+	if (board[*y][(*x) + 1] == '0')
 	{
-//		ft_putstr("error");
-		return (0);
+		*x = -1;
+		(*y)++;
 	}
-//	ft_putstr("good nbr line\n");*/
-	return (1);
 }

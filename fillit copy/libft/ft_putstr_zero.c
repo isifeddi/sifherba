@@ -6,11 +6,11 @@
 /*   By: oherba <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/10 16:02:51 by oherba            #+#    #+#             */
-/*   Updated: 2018/11/15 16:52:15 by oherba           ###   ########.fr       */
+/*   Updated: 2018/11/21 17:58:10 by isifeddi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft\libft.h"
+#include "libft.h"
 
 void	ft_putstr_zero(char const *s)
 {
